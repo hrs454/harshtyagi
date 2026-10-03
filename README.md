@@ -48,6 +48,9 @@ The Vite `base` is `./`, so the same build also works unchanged from a project r
   propagates through light and dark mode.
 - Dark mode follows the system setting on first visit, then remembers the toggle. The theme is
   applied by a small inline script in `index.html` so the page never flashes the wrong colours.
+- **3D effects**: Subtle depth animations using pure CSS transforms and a lightweight canvas particle
+  field—no Three.js needed. See [3D_EFFECTS.md](./3D_EFFECTS.md) for details and customization.
+  Bundle increase: **~1.1 KB gzipped**.
 - The typing test in the Projects section is a live, playable build of Fast Fingers
   (`src/components/TypingTest.jsx`).
 - Contact is handled by direct email, phone and profile links rather than a form, because GitHub
