@@ -415,10 +415,19 @@ p {
   -webkit-mask-image: radial-gradient(115% 85% at 18% 0%, #000 0%, transparent 72%);
   mask-image: radial-gradient(115% 85% at 18% 0%, #000 0%, transparent 72%);
   pointer-events: none;
+  will-change: transform;
 }
 
 .hero__inner {
   position: relative;
+  will-change: transform;
+}
+
+.hero__name,
+.hero__lede,
+.hero__actions,
+.hero__facts {
+  will-change: transform;
 }
 
 .hero__name {
