@@ -53,6 +53,22 @@
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+[data-theme='dark'] .btn--primary::before {
+  box-shadow: 0 4px 12px rgba(127, 147, 255, 0.3);
+}
+
+[data-theme='dark'] .btn--quiet::before {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .project:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .mark__dot {
+  box-shadow: 0 0 8px var(--accent), 0 2px 4px rgba(127, 147, 255, 0.4);
+}
+
 /* --- reset -------------------------------------------------------------- */
 
 *,
@@ -215,12 +231,38 @@ p {
   font-size: var(--step--1);
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transform: translateZ(-4px);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px) translateZ(6px);
+}
+
+.btn:active {
+  transform: translateY(0) translateZ(2px);
+  transition-duration: 0.1s;
 }
 
 .btn--primary {
   background: var(--accent);
   color: var(--on-accent);
+}
+
+.btn--primary::before {
+  background: var(--accent-ink);
+  box-shadow: 0 4px 12px rgba(43, 68, 255, 0.25);
 }
 
 .btn--primary:hover {
@@ -231,6 +273,11 @@ p {
   background: var(--surface);
   border-color: var(--line);
   color: var(--ink);
+}
+
+.btn--quiet::before {
+  background: var(--line);
+  box-shadow: 0 2px 8px rgba(14, 23, 38, 0.08);
 }
 
 .btn--quiet:hover {
@@ -282,6 +329,18 @@ p {
   border-radius: 50%;
   background: var(--accent);
   align-self: center;
+  box-shadow: 0 0 8px var(--accent), 0 2px 4px rgba(43, 68, 255, 0.4);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-3px) translateZ(4px);
+  }
 }
 
 .nav {
@@ -369,10 +428,21 @@ p {
   line-height: 0.84;
   letter-spacing: -0.035em;
   text-transform: none;
+  perspective: 1000px;
 }
 
 .hero__name span {
   display: block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.hero__name:hover span:first-child {
+  transform: translateZ(12px) rotateX(-2deg);
+}
+
+.hero__name:hover span:last-child {
+  transform: translateZ(8px) rotateX(1deg);
 }
 
 .hero__name span:last-child {
@@ -570,6 +640,30 @@ p {
   border-radius: 12px;
   padding: clamp(1.4rem, 3.5vw, 2.25rem);
   box-shadow: var(--shadow);
+  transition: all 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.project::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-soft), transparent);
+  opacity: 0;
+  transition: opacity 0.32s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.project:hover {
+  transform: translateY(-4px) rotateX(2deg);
+  box-shadow: 0 12px 32px rgba(14, 23, 38, 0.15);
+}
+
+.project:hover::before {
+  opacity: 1;
 }
 
 .project__head {
@@ -666,6 +760,11 @@ p {
   border-color: var(--accent);
   border-width: 1px;
   box-shadow: 0 0 0 4px var(--accent-soft);
+  transform: scale(1.01);
+}
+
+.project--live:hover {
+  transform: translateY(-4px) rotateX(2deg) scale(1.01);
 }
 
 .project__pending {
@@ -1105,9 +1204,26 @@ a.detail__value:hover {
     animation: none;
   }
 
+  .mark__dot {
+    animation: none;
+  }
+
+  .btn,
+  .project,
+  .hero__name span {
+    transition: none;
+    transform: none !important;
+  }
+
+  .btn:hover,
+  .project:hover {
+    transform: none !important;
+  }
+
   *,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

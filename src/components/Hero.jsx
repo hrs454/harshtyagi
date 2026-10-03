@@ -1,4 +1,5 @@
 import { profile, work } from '../content/profile.js'
+import HeroCanvas from './HeroCanvas.jsx'
 
 const facts = [
   { key: 'Based in', value: profile.location },
@@ -12,6 +13,7 @@ export default function Hero() {
 
   return (
     <section className="hero" aria-label="Introduction">
+      <HeroCanvas />
       <div className="wrap hero__inner">
         <h1 className="hero__name reveal">
           <span>{first}</span>
