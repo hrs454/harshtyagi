@@ -74,8 +74,8 @@ export const projects = [
     ],
     metric: { value: '20%', label: 'faster delivery from reusable components' },
     stack: ['React Native', 'Firebase', 'JavaScript'],
-    url: '', // REPLACE with the live or store link
-    repo: '', // REPLACE with the repository link
+    url: 'https://www.syspoweryoga.com/',
+    repo: '',
   },
   {
     id: 'fast-fingers',
