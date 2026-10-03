@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Harsh Tyagi — Software Engineer</title>
+    <meta
+      name="description"
+      content="Harsh Tyagi is a software engineer in Noida building eCommerce dashboards, bulk import tools and REST APIs with React.js, Node.js and React Native."
+    />
+    <meta name="author" content="Harsh Tyagi" />
+    <meta name="theme-color" content="#edf0f5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
+
+    <!-- REPLACE the four URLs below once the GitHub Pages address is known. -->
+    <link rel="canonical" href="https://harshtyagi.github.io/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Harsh Tyagi — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack engineer in Noida. React.js, Node.js, React Native. Dashboards, import tools and APIs for eCommerce and CRM teams."
+    />
+    <meta property="og:url" content="https://harshtyagi.github.io/" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,75..125,400..800;1,100,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Harsh Tyagi",
+        "jobTitle": "Software Engineer",
+        "email": "mailto:tyagiharsh7830@gmail.com",
+        "telephone": "+91-7830061649",
+        "address": { "@type": "PostalAddress", "addressLocality": "Noida", "addressCountry": "IN" },
+        "alumniOf": "Dev Bhoomi Group of Institutions, Dehradun",
+        "knowsAbout": ["React.js", "Node.js", "Express.js", "React Native", "REST APIs", "MySQL"]
+      }
+    </script>
+
+    <script>
+      // Set the theme before first paint so the page never flashes the wrong one.
+      ;(function () {
+        try {
+          var saved = localStorage.getItem('theme')
+          var system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          document.documentElement.dataset.theme = saved || system
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
