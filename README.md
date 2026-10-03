@@ -23,6 +23,9 @@ Lines marked `REPLACE` still hold placeholder values:
 | Project demo and repo links | `url` and `repo` on each project |
 | Site URL for SEO and social previews | the four URLs near the top of `index.html` |
 
+Those URLs currently read `https://harshtyagi.github.io/`. Change the username if your repository
+is named something else.
+
 A project's buttons only appear once its `url` or `repo` has a value, so empty placeholders don't
 produce dead links.
 
@@ -31,12 +34,13 @@ that file to publish a new version.
 
 ## Deploy to GitHub Pages
 
-1. Create a repository on GitHub and push this folder to the `main` branch.
+1. Create a repository on GitHub named `<your-username>.github.io` and push this folder to `main`.
 2. In the repository, open **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds the site and publishes it.
+3. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds the site and publishes it
+   to `https://<your-username>.github.io`.
 
-The Vite `base` is `./`, so the same build works whether the site is served from
-`username.github.io` or `username.github.io/repo-name`.
+The Vite `base` is `./`, so the same build also works unchanged from a project repo served at
+`username.github.io/repo-name`.
 
 ## Notes on the build
 
@@ -46,6 +50,5 @@ The Vite `base` is `./`, so the same build works whether the site is served from
   applied by a small inline script in `index.html` so the page never flashes the wrong colours.
 - The typing test in the Projects section is a live, playable build of Fast Fingers
   (`src/components/TypingTest.jsx`).
-- The contact form opens a pre-filled draft in the visitor's mail app. GitHub Pages serves static
-  files only, so there is no server to post to. To collect submissions directly, point the form at a
-  service like Formspree.
+- Contact is handled by direct email, phone and profile links rather than a form, because GitHub
+  Pages serves static files and has no server to receive a submission.
